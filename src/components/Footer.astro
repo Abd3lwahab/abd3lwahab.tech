@@ -1,0 +1,51 @@
+---
+import { Icon } from 'astro-icon'
+---
+
+<footer class="mt-20">
+  <div class="sm:px-8 lg:px-16">
+    <div class="pt-12 pb-16 border-t border-slate-800">
+      <div class="relative px-4 sm:px-8 lg:px-12">
+        <div class="flex flex-col md:flex-row md:justify-between gap-4">
+          <ul class="flex justify-center md:justify-start gap-8 text-slate-400 text-sm h-fit">
+            <li class="flex justify-center items-center">
+              <a href="/" rel="prefetch" class="hover:text-hovered">home</a>
+            </li>
+            <li class="flex justify-center items-center">
+              <a href="/blog" rel="prefetch" class="hover:text-hovered">blog</a>
+            </li>
+            <li class="flex justify-center items-center">
+              <a href="/projects" rel="prefetch" class="hover:text-hovered">projects</a>
+            </li>
+          </ul>
+          <div class="flex flex-col items-center md:items-end gap-4 text-sm text-slate-400">
+            <a href="mailto:abdelwahab.huss07@gmail.com" class="hover:text-hovered"
+              >abdelwahab.huss07@gmail.com
+            </a>
+            <ul class="flex justify-start gap-8 text-slate-400 text-sm">
+              <li class="flex justify-center items-center">
+                <a href="https://twitter.com/Abd3lwahab" target="_blank" class="hover:text-hovered">
+                  <Icon name="mdi:twitter" width="24" height="24" />
+                </a>
+              </li>
+              <li class="flex justify-center items-center">
+                <a href="https://github.com/abd3lwahab" target="_blank" class="hover:text-hovered">
+                  <Icon name="mdi:github" width="24" height="24" />
+                </a>
+              </li>
+              <li class="flex justify-center items-center">
+                <a
+                  href="https://www.linkedin.com/in/abdelwahab-hussein/"
+                  target="_blank"
+                  class="hover:text-hovered"
+                >
+                  <Icon name="mdi:linkedin" width="24" height="24" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
