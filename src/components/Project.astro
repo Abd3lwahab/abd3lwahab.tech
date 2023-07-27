@@ -1,0 +1,37 @@
+---
+import { Icon } from 'astro-icon'
+import type { Project } from '@/types'
+
+interface Props extends Project {}
+
+const { title, description, image, url } = Astro.props
+
+const domain = url.match(/^(?:https?:\/\/)?(?:www\.)?([^\/]+)/i)![1]
+---
+
+<a
+  href={url}
+  class="flex relative w-full h-[300px] z-10 hover:scale-105 transition-transform duration-300"
+>
+  <img
+    src={`/images/projects/${image}`}
+    decoding="async"
+    loading="lazy"
+    alt="project image"
+    class="absolute inset-0 w-full h-full object-cover rounded-lg aspect-[1/1]"
+  />
+  <div class="relative flex flex-col gap-2 justify-end p-4 z-20">
+    <div
+      class="w-full h-full rounded-md absolute -z-[1] inset-0 bg-gradient-to-t from-slate-900 to-transparent"
+    >
+    </div>
+    <h4 class="font-bold text-xl tracking-wide">{title}</h4>
+    <p>
+      {description}
+    </p>
+    <div class="flex gap-2 items-center">
+      <Icon name="ph:link" width="18" height="18" />
+      <span class="text-sm">{domain}</span>
+    </div>
+  </div>
+</a>
