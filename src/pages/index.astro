@@ -5,22 +5,13 @@ import EmptyPosts from '@/components/EmptyPosts.astro'
 import Project from '@/components/Project.astro'
 import type { Project as ProjectType } from '@/types'
 import ContactForm from '@/components/ContactForm.astro'
+import { getCollection } from 'astro:content'
 
-const projects: ProjectType[] = [
-  {
-    title: 'Median',
-    description:
-      'Median is a backend REST API for a blog built with NestJS, Prisma, PostgreSQL and documented with Swagger',
-    url: 'https://github.com/Abd3lwahab/median',
-    image: 'nestjs-prisma-rest-api.svg',
-  },
-  {
-    title: 'Pulse Talk',
-    description: 'Pulse Talk is a web chat app built using Next.js, Pusher and Upstash Redis.',
-    url: 'https://pulse-talk.vercel.app',
-    image: 'pulse-talk.svg',
-  },
-]
+const allProjects = await getCollection('projects')
+
+const latestProjects = allProjects
+  .sort((a, b) => b.data.puplishedAt.valueOf() - a.data.puplishedAt.valueOf())
+  .slice(0, 2)
 ---
 
 <Layout title="Home">
@@ -89,7 +80,7 @@ const projects: ProjectType[] = [
         </a>
       </div>
       <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
-        {projects.map((project) => <Project {...project} />)}
+        {latestProjects.map((project) => <Project project={project} />)}
       </div>
     </div>
     <ContactForm />
