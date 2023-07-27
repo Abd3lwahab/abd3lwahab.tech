@@ -1,10 +1,12 @@
 ---
 import { Icon } from 'astro-icon'
-import type { Project } from '@/types'
+import type { CollectionEntry } from 'astro:content'
 
-interface Props extends Project {}
+interface Props {
+  project: CollectionEntry<'projects'>
+}
 
-const { title, description, image, url } = Astro.props
+const { title, description, image, url } = Astro.props.project.data
 
 const domain = url.match(/^(?:https?:\/\/)?(?:www\.)?([^\/]+)/i)![1]
 ---
