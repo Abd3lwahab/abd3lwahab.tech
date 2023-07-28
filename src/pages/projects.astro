@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content'
+import Project from '@/components/Project.astro'
+import Layout from '@/layouts/Layout.astro'
+
+const projects = await getCollection('projects')
+
+const sortedProjects = projects.sort(
+  (a, b) => b.data.puplishedAt.valueOf() - a.data.puplishedAt.valueOf()
+)
+---
+
+<Layout title="Projects">
+  <div class="flex flex-col gap-6 px-8 mx-auto max-w-[95ch]">
+    <h1 class="text-4xl font-bold tracking-wider">Projects</h1>
+    <p class="text-lg">
+      Here are some of the side projects I've worked on. You can find more on my{' '}
+      <a href="https://github.com/abd3lwahab" class="underline text-blue-200">github</a>.
+    </p>
+    <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-4">
+      {sortedProjects.map((project) => <Project project={project} />)}
+    </div>
+  </div>
+</Layout>
