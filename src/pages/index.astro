@@ -1,11 +1,10 @@
 ---
 import { Icon } from 'astro-icon'
+import { getCollection } from 'astro:content'
 import Layout from '@/layouts/Layout.astro'
 import EmptyPosts from '@/components/EmptyPosts.astro'
 import Project from '@/components/Project.astro'
-import type { Project as ProjectType } from '@/types'
 import ContactForm from '@/components/ContactForm.astro'
-import { getCollection } from 'astro:content'
 
 const allProjects = await getCollection('projects')
 
@@ -54,7 +53,7 @@ const latestProjects = allProjects
             <span>Linkedin</span>
           </button>
         </a>
-        <a href="https://www.linkedin.com/in/abdelwahab-hussein">
+        <a href="/files/abdelwahab_resume.pdf" download="Abdelwahab_Resume.pdf" target="_blank">
           <button
             class="flex gap-2 justify-center border border-slate-800 rounded-lg px-4 py-2 hover:shadow-light transition-all duration-300 hover:border-slate-600"
           >
