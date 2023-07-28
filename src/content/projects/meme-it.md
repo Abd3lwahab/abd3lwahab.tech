@@ -4,4 +4,5 @@ description: 'Meme-it is a meme generator which allows you to manipulate text on
 url: 'https://meme-it.vercel.app'
 image: 'meme-it.png'
 puplishedAt: '3 SEP 2020'
+featured: false
 ---

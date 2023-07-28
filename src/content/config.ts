@@ -3,7 +3,6 @@ import { defineCollection, z } from 'astro:content'
 const blogCollection = defineCollection({})
 
 const projectsCollection = defineCollection({
-  // type: 'data',
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -13,6 +12,7 @@ const projectsCollection = defineCollection({
       .string()
       .or(z.date())
       .transform((val) => new Date(val)),
+    featured: z.boolean(),
   }),
 })
 
