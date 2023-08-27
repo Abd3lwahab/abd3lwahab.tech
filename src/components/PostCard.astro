@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import FormattedDate from './FormattedDate.astro'
+
+interface Props {
+  post: CollectionEntry<'blog'>
+}
+
+const { post } = Astro.props
+
+const { title, description, puplishedAt, postSlug, tags } = post.data
+---
+
+<div
+  class="flex flex-col px-4 py-3 border-l dark:border-slate-700 border-slate-300 gap-2 hover:border-l-4 transition-all"
+>
+  <a href={`/blog/${postSlug}`}>
+    <h3 class="text-xl font-bold dark:text-slate-100 tracking-wide">{title}</h3>
+  </a>
+  <p class="text-xs text-gray-400">
+    <FormattedDate date={puplishedAt} />
+    <p class="text">{description}</p>
+    <div class="flex flex-row gap-2">
+      {
+        tags.map((tag) => (
+          <p class="dark:bg-slate-800 bg-slate-300 rounded-lg text-xs px-2 py-1 font-bold dark:text-blue-400">
+            {tag}
+          </p>
+        ))
+      }
+    </div>
+  </p>
+</div>
