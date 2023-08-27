@@ -5,14 +5,20 @@ import Layout from '@/layouts/Layout.astro'
 import EmptyPosts from '@/components/EmptyPosts.astro'
 import Project from '@/components/Project.astro'
 import ContactForm from '@/components/ContactForm.astro'
+import PostsList from '@/components/PostsList.astro'
 
 const allProjects = await getCollection('projects')
+const allBlogPosts = await getCollection('blog')
 
 const featuredProjects = allProjects.filter((project) => project.data.featured)
+const latestPublishedPosts = allBlogPosts
+  .filter((post) => post.data.published)
+  .sort((a, b) => b.data.puplishedAt.valueOf() - a.data.puplishedAt.valueOf())
+  .slice(0, 3)
 ---
 
 <Layout title="Home">
-  <div class="flex flex-col gap-10 px-8 mx-auto max-w-[85ch]">
+  <div class="flex flex-col gap-14 px-8 mx-auto max-w-[85ch]">
     <div class="flex flex-col gap-4 tracking-wide">
       <p class="text-4xl font-bold">
         Hello there! <span class="gradient-name">I'm Abdelwahab</span>
@@ -26,31 +32,31 @@ const featuredProjects = allProjects.filter((project) => project.data.featured)
         I aim to share my journey of exploration. I write about various aspects of computer science,
         ranging from Programming Languages, Web Development, to Theoretical CS.
       </p>
-      <div class="flex flex-row flex-wrap gap-2 text-slate-400">
+      <div class="flex flex-row flex-wrap gap-2 dark:text-slate-400 text-slate-600">
         <a
           href="https://twitter.com/Abd3lwahab"
-          class="flex gap-2 justify-center border border-slate-800 rounded-lg px-4 py-2 hover:shadow-light transition-all duration-300 hover:border-slate-600 focus:ring-2 focus-visible:ring-2 outline-none"
+          class="flex gap-2 justify-center border border-slate-300 dark:border-slate-800 rounded-lg px-4 py-2 hover:shadow-dark dark:hover:shadow-light transition-all duration-300 hover:border-slate-400 dark:hover:border-slate-600 focus:ring-2 focus-visible:ring-2 outline-none"
         >
           <Icon name="ph:twitter-logo" width="24" height="24" />
           <span>Twitter</span>
         </a>
         <a
           href="https://github.com/abd3lwahab"
-          class="flex gap-2 justify-center border border-slate-800 rounded-lg px-4 py-2 hover:shadow-light transition-all duration-300 hover:border-slate-600 focus:ring-2 focus-visible:ring-2 outline-none"
+          class="flex gap-2 justify-center border border-slate-300 dark:border-slate-800 rounded-lg px-4 py-2 hover:shadow-dark dark:hover:shadow-light transition-all duration-300 hover:border-slate-400 dark:hover:border-slate-600 focus:ring-2 focus-visible:ring-2 outline-none"
         >
           <Icon name="ph:github-logo" width="24" height="24" />
           <span>Github</span>
         </a>
         <a
           href="https://www.linkedin.com/in/abdelwahab-hussein"
-          class="flex gap-2 justify-center border border-slate-800 rounded-lg px-4 py-2 hover:shadow-light transition-all duration-300 hover:border-slate-600 focus:ring-2 focus-visible:ring-2 outline-none"
+          class="flex gap-2 justify-center border border-slate-300 dark:border-slate-800 rounded-lg px-4 py-2 hover:shadow-dark dark:hover:shadow-light transition-all duration-300 hover:border-slate-400 dark:hover:border-slate-600 focus:ring-2 focus-visible:ring-2 outline-none"
         >
           <Icon name="ph:linkedin-logo" width="24" height="24" />
           <span>Linkedin</span>
         </a>
         <a
           href="/files/abdelwahab_resume.pdf"
-          class="flex gap-2 justify-center border border-slate-800 rounded-lg px-4 py-2 hover:shadow-light transition-all duration-300 hover:border-slate-600 focus:ring-2 focus-visible:ring-2 outline-none"
+          class="flex gap-2 justify-center border border-slate-300 dark:border-slate-800 rounded-lg px-4 py-2 hover:shadow-dark dark:hover:shadow-light transition-all duration-300 hover:border-slate-400 dark:hover:border-slate-600 focus:ring-2 focus-visible:ring-2 outline-none"
         >
           <Icon name="ph:download-simple" width="24" height="24" />
           <span>Resume</span>
@@ -58,8 +64,22 @@ const featuredProjects = allProjects.filter((project) => project.data.featured)
       </div>
     </div>
     <div class="flex flex-col gap-4">
-      <h2 class="text-2xl font-bold tracking-wide">Latset blog posts</h2>
-      <EmptyPosts />
+      <div class="flex justify-between">
+        <h2 class="text-2xl font-bold tracking-wide">Latset blog posts</h2>
+        <a
+          href="/blog"
+          class="border-slate-800 border-b py-0 transition-all duration-300 hover:border-slate-600 text-slate-400 h-fit"
+        >
+          View all
+        </a>
+      </div>
+      {
+        latestPublishedPosts.length ? (
+          <PostsList blogPosts={latestPublishedPosts} />
+        ) : (
+          <EmptyPosts />
+        )
+      }
     </div>
     <div class="flex flex-col gap-4">
       <div class="flex justify-between">
@@ -80,9 +100,17 @@ const featuredProjects = allProjects.filter((project) => project.data.featured)
 </Layout>
 
 <style>
-  .gradient-name {
+  :global(.dark) .gradient-name {
     background: #bfdbfe;
     background: linear-gradient(to right, #bfdbfe 25%, #f8fec1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+  }
+
+  .gradient-name {
+    background: #bfdbfe;
+    background: linear-gradient(to right, #603c0c 25%, #0b0074 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 800;

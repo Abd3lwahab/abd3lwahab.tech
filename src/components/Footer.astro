@@ -4,30 +4,37 @@ import { Icon } from 'astro-icon'
 
 <footer class="mt-20 sticky top-[100vh]">
   <div class="sm:px-8 lg:px-16">
-    <div class="pt-12 pb-16 border-t border-slate-800">
+    <div class="py-12 border-t dark:border-slate-800 border-slate-300">
       <div class="relative px-4 sm:px-8 lg:px-12">
         <div class="flex flex-col md:flex-row md:justify-between gap-4">
-          <ul class="flex justify-center md:justify-start gap-8 text-slate-400 text-sm h-fit">
+          <ul
+            class="flex justify-center md:justify-start gap-8 dark:text-slate-400 text-slate-600 text-sm h-fit"
+          >
             <li class="flex justify-center items-center">
-              <a href="/" class="hover:text-hovered">home</a>
+              <a href="/" class="hover:text-slate-400 dark:hover:text-slate-300">home</a>
             </li>
             <li class="flex justify-center items-center">
-              <a href="/blog" class="hover:text-hovered">blog</a>
+              <a href="/blog" class="hover:text-slate-400 dark:hover:text-slate-300">blog</a>
             </li>
             <li class="flex justify-center items-center">
-              <a href="/projects" class="hover:text-hovered">projects</a>
+              <a href="/projects" class="hover:text-slate-400 dark:hover:text-slate-300">projects</a
+              >
             </li>
           </ul>
-          <div class="flex flex-col items-center md:items-end gap-4 text-sm text-slate-400">
-            <a href="mailto:abdelwahab.huss07@gmail.com" class="hover:text-hovered"
+          <div
+            class="flex flex-col items-center md:items-end gap-4 text-sm dark:text-slate-400 text-slate-600"
+          >
+            <a
+              href="mailto:abdelwahab.huss07@gmail.com"
+              class="hover:text-slate-400 dark:hover:text-slate-300"
               >abdelwahab.huss07@gmail.com
             </a>
-            <ul class="flex justify-start gap-8 text-slate-400 text-sm">
+            <ul class="flex justify-start gap-8 dark:text-slate-400 text-slate-600 text-sm">
               <li class="flex justify-center items-center">
                 <a
                   href="https://twitter.com/Abd3lwahab"
                   target="_blank"
-                  class="hover:text-hovered"
+                  class="hover:text-slate-400 dark:hover:text-slate-300"
                   aria-label="Twitter: @Abd3lwahab"
                 >
                   <Icon name="mdi:twitter" width="24" height="24" />
@@ -37,7 +44,7 @@ import { Icon } from 'astro-icon'
                 <a
                   href="https://github.com/abd3lwahab"
                   target="_blank"
-                  class="hover:text-hovered"
+                  class="hover:text-slate-400 dark:hover:text-slate-300"
                   aria-label="Github: @abd3lwahab"
                 >
                   <Icon name="mdi:github" width="24" height="24" />
@@ -47,7 +54,7 @@ import { Icon } from 'astro-icon'
                 <a
                   href="https://www.linkedin.com/in/abdelwahab-hussein/"
                   target="_blank"
-                  class="hover:text-hovered"
+                  class="hover:text-slate-400 dark:hover:text-slate-300"
                   aria-label="Linkedin: abdelwahab-hussein"
                 >
                   <Icon name="mdi:linkedin" width="24" height="24" />

@@ -13,7 +13,7 @@ const domain = url.match(/^(?:https?:\/\/)?(?:www\.)?([^\/]+)/i)![1]
 
 <a
   href={url}
-  class="flex relative w-full h-[300px] z-10 hover:scale-105 transition-transform duration-300"
+  class="flex relative w-full h-[300px] z-10 hover:scale-105 transition-transform duration-300 text-gray-200"
 >
   <img
     src={`/images/projects/${image}`}
@@ -23,7 +23,7 @@ const domain = url.match(/^(?:https?:\/\/)?(?:www\.)?([^\/]+)/i)![1]
   />
   <div class="relative flex flex-col gap-2 justify-end p-4 z-20">
     <div
-      class="w-full h-full rounded-md absolute -z-[1] inset-0 bg-gradient-to-t from-slate-900 to-[#00000033]"
+      class="w-full h-full rounded-md absolute -z-[1] inset-0 bg-gradient-to-t from-slate-900 dark:to-[#00000033]"
     >
     </div>
     <p class="font-bold text-xl tracking-wider">{title}</p>

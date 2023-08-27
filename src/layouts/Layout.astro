@@ -20,9 +20,11 @@ const { title } = Astro.props
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="min-h-full sm:px-8 selection:bg-accent-400 selection:text-blue text-gray-200">
+  <body
+    class="min-h-full sm:px-8 selection:bg-accent-400 selection:text-blue dark:text-gray-200 text-gray-900"
+  >
     <div
-      class="mx-auto min-h-screen max-w-6xl bg-bgContent border-x-[1px] border-slate-800 flex flex-col"
+      class="mx-auto min-h-screen max-w-6xl dark:bg-[#02070c] bg-slate-200 border-x-[1px] dark:border-slate-800 border-slate-300 flex flex-col"
     >
       <Header />
       <main class="pt-12 relative">
@@ -33,16 +35,21 @@ const { title } = Astro.props
   </body>
 </html>
 <style is:global>
-  body {
+  .dark body {
     background: linear-gradient(
-      109.6deg,
+      90deg,
       rgb(0, 0, 0) 11.2%,
       rgb(12, 28, 46) 51.2%,
       rgb(0, 0, 0) 98.6%
     );
   }
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-      Bitstream Vera Sans Mono, Courier New, monospace;
+
+  body {
+    background: linear-gradient(
+      90deg,
+      rgb(235, 235, 235) 10%,
+      rgb(186, 210, 255) 51.2%,
+      rgb(235, 235, 235) 90%
+    );
   }
 </style>
