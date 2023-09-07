@@ -14,18 +14,13 @@ const { title } = Astro.props
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content="Abdelwahab Hussein personal website" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body
-    class="min-h-full sm:px-8 selection:bg-accent-400 selection:text-blue dark:text-gray-200 text-gray-900"
-  >
-    <div
-      class="mx-auto min-h-screen max-w-6xl dark:bg-[#02070c] bg-slate-200 border-x-[1px] dark:border-slate-800 border-slate-300 flex flex-col"
-    >
+  <body class="min-h-full sm:px-8 selection:bg-accent-400 selection:text-blue dark:text-gray-200 text-gray-900">
+    <div class="mx-auto min-h-screen max-w-6xl dark:bg-[#02070c] bg-slate-100 border-x-[1px] dark:border-slate-800 border-slate-300 flex flex-col">
       <Header />
       <main class="pt-12 relative">
         <slot />
@@ -36,20 +31,10 @@ const { title } = Astro.props
 </html>
 <style is:global>
   .dark body {
-    background: linear-gradient(
-      90deg,
-      rgb(0, 0, 0) 11.2%,
-      rgb(12, 28, 46) 51.2%,
-      rgb(0, 0, 0) 98.6%
-    );
+    background: linear-gradient(90deg, rgb(0, 0, 0) 11.2%, rgb(12, 28, 46) 51.2%, rgb(0, 0, 0) 98.6%);
   }
 
   body {
-    background: linear-gradient(
-      90deg,
-      rgb(235, 235, 235) 10%,
-      rgb(186, 210, 255) 51.2%,
-      rgb(235, 235, 235) 90%
-    );
+    background: linear-gradient(90deg, rgb(235, 235, 235) 10%, rgb(186, 210, 255) 51.2%, rgb(235, 235, 235) 90%);
   }
 </style>
