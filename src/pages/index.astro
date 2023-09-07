@@ -23,15 +23,8 @@ const latestPublishedPosts = allBlogPosts
       <p class="text-4xl font-bold">
         Hello there! <span class="gradient-name">I'm Abdelwahab</span>
       </p>
-      <p>
-        A Software developer with a degree in Mathematics and Computer Science, I'm passionate about
-        Javascript ecosystem including React.js, Next.js, React-Native and Node.js. I also enjoy
-        working with Typescript and crafting user interfaces using Tailwind CSS.
-      </p>
-      <p>
-        I aim to share my journey of exploration. I write about various aspects of computer science,
-        ranging from Programming Languages, Web Development, to Theoretical CS.
-      </p>
+      <p>A Software enginner with a degree in Mathematics and Computer Science</p>
+      <p>I aim to share my journey of exploration. I write about various aspects of computer science, ranging from Programming Languages, Web Development, to Theoretical CS.</p>
       <div class="flex flex-row flex-wrap gap-2 dark:text-slate-400 text-slate-600">
         <a
           href="https://twitter.com/Abd3lwahab"
@@ -54,42 +47,26 @@ const latestPublishedPosts = allBlogPosts
           <Icon name="ph:linkedin-logo" width="24" height="24" />
           <span>Linkedin</span>
         </a>
-        <a
+        <!-- <a
           href="/files/abdelwahab_resume.pdf"
           class="flex gap-2 justify-center border border-slate-300 dark:border-slate-800 rounded-lg px-4 py-2 hover:shadow-dark dark:hover:shadow-light transition-all duration-300 hover:border-slate-400 dark:hover:border-slate-600 focus:ring-2 focus-visible:ring-2 outline-none"
         >
           <Icon name="ph:download-simple" width="24" height="24" />
           <span>Resume</span>
-        </a>
+        </a> -->
       </div>
     </div>
     <div class="flex flex-col gap-4">
       <div class="flex justify-between">
-        <h2 class="text-2xl font-bold tracking-wide">Latset blog posts</h2>
-        <a
-          href="/blog"
-          class="border-slate-800 border-b py-0 transition-all duration-300 hover:border-slate-600 text-slate-400 h-fit"
-        >
-          View all
-        </a>
+        <h2 class="text-2xl font-bold tracking-wide">Latest blog posts</h2>
+        <a href="/blog" class="border-slate-800 border-b py-0 transition-all duration-300 hover:border-slate-600 text-slate-400 h-fit"> View all</a>
       </div>
-      {
-        latestPublishedPosts.length ? (
-          <PostsList blogPosts={latestPublishedPosts} />
-        ) : (
-          <EmptyPosts />
-        )
-      }
+      {latestPublishedPosts.length ? <PostsList blogPosts={latestPublishedPosts} /> : <EmptyPosts />}
     </div>
     <div class="flex flex-col gap-4">
       <div class="flex justify-between">
         <h2 class="text-2xl font-bold tracking-wide">Featured projects</h2>
-        <a
-          href="/projects"
-          class="border-slate-800 border-b py-0 transition-all duration-300 hover:border-slate-600 text-slate-400 h-fit"
-        >
-          View all
-        </a>
+        <a href="/projects" class="border-slate-800 border-b py-0 transition-all duration-300 hover:border-slate-600 text-slate-400 h-fit"> View all</a>
       </div>
       <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
         {featuredProjects.map((project) => <Project project={project} />)}
